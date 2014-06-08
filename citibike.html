@@ -1,0 +1,458 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>Celestial Citibike Station Intel</title>
+    <link rel="shortcut icon" href="http://www.citibikenyc.com/assets/images/favicon.ico">
+    <link rel="stylesheet" href="http://lisa.stuy.edu/~munawar.rahman/CitiBike/citibike.css">
+
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="ie/form_ie.css">
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <![endif]-->
+
+    <style>
+    h1 {
+    text-align:center;
+    text-shadow:1px 1px 1px #000000;
+    margin-bottom:42px;
+    color: white
+    line-height:44px;
+    font-family: "Interstate-Regular";
+    font-weight:normal;
+}
+    h1 span {
+        font-size:26px;
+    }
+
+    .css_form .form_buttons {
+    padding-left:200px;
+}
+    .css_form .form_buttons input {
+        position:relative;
+        display:block;
+        width:90px;
+        float:left;
+        margin-right:20px;
+    }
+        .css_form .form_buttons input:active {
+            top:1px;
+            -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.5);
+            -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.5);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.5);
+            -webkit-transition: all 0.1s;
+            -moz-transition: all 0.1s;
+            -o-transition: all 0.1s;
+            -ms-transition: all 0.1s;
+            transition: all 0.1s;
+        }
+    </style>
+    <datalist id="stations">
+    <option value="W 52 St & 11 Ave">
+<option value="Franklin St & W Broadway">
+<option value="St James Pl & Pearl St">
+<option value="Atlantic Ave & Fort Greene Pl">
+<option value="W 17 St & 8 Ave">
+<option value="Park Ave & St Edwards St">
+<option value="Lexington Ave & Classon Ave">
+<option value="Barrow St & Hudson St">
+<option value="MacDougal St & Prince St">
+<option value="E 56 St & Madison Ave">
+<option value="Clinton St & Joralemon St">
+<option value="Nassau St & Navy St">
+<option value="Hudson St & Reade St">
+<option value="Greenwich St & Warren St">
+<option value="E 2 St & Avenue C">
+<option value="Cleveland Pl & Spring St">
+<option value="Warren St & Church St">
+<option value="E 40 St & 5 Ave">
+<option value="Henry St & Atlantic Ave">
+<option value="E 37 St & Lexington Ave">
+<option value="LaGuardia Pl & W 3 St">
+<option value="E 47 St & 2 Ave">
+<option value="E 39 St & 3 Ave">
+<option value="W 18 St & 6 Ave">
+<option value="Broadway & W 49 St">
+<option value="E 25 St & 1 Ave">
+<option value="Liberty St & Broadway">
+<option value="W 16 St & The High Line">
+<option value="Columbia Heights & Cranberry St">
+<option value="Old Fulton St">
+<option value="Gallatin Pl & Livingston St">
+<option value="W 13 St & 7 Ave">
+<option value="Spruce St & Nassau St">
+<option value="W 14 St & The High Line">
+<option value="E 48 St & 3 Ave">
+<option value="Great Jones St">
+<option value="Cadman Plaza E & Tillary St">
+<option value="Joralemon St & Adams St">
+<option value="St Marks Pl & 2 Ave">
+<option value="E 11 St & 2 Ave">
+<option value="Bank St & Washington St">
+<option value="Willoughby St & Fleet St">
+<option value="DeKalb Ave & S Portland Ave">
+<option value="Flushing Ave & Carlton Ave">
+<option value="Fulton St & Rockwell Pl">
+<option value="Willoughby Ave & Hall St">
+<option value="Myrtle Ave & St Edwards St">
+<option value="Perry St & Bleecker St">
+<option value="Laight St & Hudson St">
+<option value="Harrison St & Hudson St">
+<option value="Lafayette St & Jersey St">
+<option value="Mott St & Prince St">
+<option value="MacDougal St & Washington Sq">
+<option value="W 13 St & 5 Ave">
+<option value="W 11 St & 6 Ave">
+<option value="Lispenard St & Broadway">
+<option value="DeKalb Ave & Vanderbilt Ave">
+<option value="South St & Whitehall St">
+<option value="Broad St & Bridge St">
+<option value="Johnson St & Gold St">
+<option value="Washington Park">
+<option value="Elizabeth St & Hester St">
+<option value="Maiden Ln & Pearl St">
+<option value="Stanton St & Chrystie St">
+<option value="Avenue D & E 8 St">
+<option value="Broadway & W 36 St">
+<option value="Howard St & Centre St">
+<option value="Adelphi St & Myrtle Ave">
+<option value="Ashland Pl & Hanson Pl">
+<option value="Lafayette Ave & Fort Greene Pl">
+<option value="Washington Ave & Greene Ave">
+<option value="Duane St & Greenwich St">
+<option value="Concord St & Bridge St">
+<option value="Sands St & Gold St">
+<option value="E 10 St & 5 Ave">
+<option value="Grand Army Plaza & Central Park S">
+<option value="Kent Ave & S 11 St">
+<option value="Greenwich Ave & 8 Ave">
+<option value="Broadway & E 14 St">
+<option value="Monroe St & Classon Ave">
+<option value="2 Ave & E 58 St">
+<option value="Madison St & Montgomery St">
+<option value="Lafayette St & E 8 St">
+<option value="Washington Square E">
+<option value="Pike St & E Broadway">
+<option value="Division St & Bowery">
+<option value="E 15 St & 3 Ave">
+<option value="3 Ave & Schermerhorn St">
+<option value="Shevchenko Pl & E 7 St">
+<option value="E 2 St & Avenue B">
+<option value="Avenue D & E 3 St">
+<option value="Mercer St & Spring St">
+<option value="Broadway & Battery Pl">
+<option value="E 58 St & 3 Ave">
+<option value="Cliff St & Fulton St">
+<option value="Canal St & Rutgers St">
+<option value="St James Pl & Oliver St">
+<option value="Murray St & West St">
+<option value="State St & Smith St">
+<option value="Norfolk St & Broome St">
+<option value="Allen St & E Houston St">
+<option value="Washington Ave & Park Ave">
+<option value="Cadman Plaza West & Montague St">
+<option value="South St & Gouverneur Ln">
+<option value="Fulton St & William St">
+<option value="E 6 St & Avenue B">
+<option value="E 43 St & Vanderbilt Ave">
+<option value="Park Pl & Church St">
+<option value="Leonard St & Church St">
+<option value="Cadman Plaza E & Red Cross Pl">
+<option value="Clinton St & Tillary St">
+<option value="Lawrence St & Willoughby St">
+<option value="DeKalb Ave & Hudson Ave">
+<option value="E 19 St & 3 Ave">
+<option value="E 11 St & 1 Ave">
+<option value="Vesey Pl & River Terrace">
+<option value="Watts St & Greenwich St">
+<option value="Greenwich St & N Moore St">
+<option value="Reade St & Broadway">
+<option value="Pike St & Monroe St">
+<option value="Cherry St">
+<option value="W 20 St & 7 Ave">
+<option value="Washington Pl & Broadway">
+<option value="Sullivan St & Washington Sq">
+<option value="Old Slip & Front St">
+<option value="Avenue D & E 12 St">
+<option value="Madison St & Clinton St">
+<option value="Stanton St & Mangin St">
+<option value="Columbia St & Rivington St">
+<option value="Clinton Ave & Flushing Ave">
+<option value="Monroe St & Bedford Ave">
+<option value="W 13 St & 6 Ave">
+<option value="Bank St & Hudson St">
+<option value="W Houston St & Hudson St">
+<option value="W Broadway & Spring St">
+<option value="Rivington St & Ridge St">
+<option value="Clinton St & Grand St">
+<option value="Front St & Maiden Ln">
+<option value="W 56 St & 6 Ave">
+<option value="S Portland Ave & Hanson Pl">
+<option value="Emerson Pl & Myrtle Ave">
+<option value="Bayard St & Baxter St">
+<option value="Bialystoker Pl & Delancey St">
+<option value="E 11 St & Broadway">
+<option value="Christopher St & Greenwich St">
+<option value="E 47 St & Park Ave">
+<option value="William St & Pine St">
+<option value="Allen St & Hester St">
+<option value="Broadway & W 37 St">
+<option value="West Thames St">
+<option value="Lafayette Ave & Classon Ave">
+<option value="Fulton St & Grand Ave">
+<option value="Clinton Ave & Myrtle Ave">
+<option value="E 53 St & Lexington Ave">
+<option value="Carmine St & 6 Ave">
+<option value="Washington Pl & 6 Ave">
+<option value="Franklin Ave & Myrtle Ave">
+<option value="Willoughby Ave & Walworth St">
+<option value="Mercer St & Bleecker St">
+<option value="John St & William St">
+<option value="6 Ave & Canal St">
+<option value="W 31 St & 7 Ave">
+<option value="W 4 St & 7 Ave S">
+<option value="University Pl & E 14 St">
+<option value="Greenwich Ave & Charles St">
+<option value="Fulton St & Waverly Ave">
+<option value="E 55 St & 2 Ave">
+<option value="Centre St & Worth St">
+<option value="Centre St & Chambers St">
+<option value="W 26 St & 10 Ave">
+<option value="Broadway & Berry St">
+<option value="Duffield St & Willoughby St">
+<option value="Clark St & Henry St">
+<option value="Jay St & Tech Pl">
+<option value="E 5 St & Avenue C">
+<option value="E 9 St & Avenue C">
+<option value="Bond St & Schermerhorn St">
+<option value="Lefferts Pl & Franklin Ave">
+<option value="Fulton St & Clermont Ave">
+<option value="Atlantic Ave & Furman St">
+<option value="Lafayette Ave & St James Pl">
+<option value="Pitt St & Stanton St">
+<option value="Allen St & Rivington St">
+<option value="Broadway & E 22 St">
+<option value="E 2 St & 2 Ave">
+<option value="9 Ave & W 14 St">
+<option value="Washington St & Gansevoort St">
+<option value="Hicks St & Montague St">
+<option value="Henry St & Poplar St">
+<option value="Market St & Cherry St">
+<option value="DeKalb Ave & Skillman St">
+<option value="Suffolk St & Stanton St">
+<option value="E 6 St & Avenue D">
+<option value="Forsyth St & Canal St">
+<option value="Pearl St & Anchorage Pl">
+<option value="Pearl St & Hanover Square">
+<option value="Cumberland St & Lafayette Ave">
+<option value="Barclay St & Church St">
+<option value="Front St & Gold St">
+<option value="Carlton Ave & Park Ave">
+<option value="Clermont Ave & Lafayette Ave">
+<option value="Clermont Ave & Park Ave">
+<option value="W 59 St & 10 Ave">
+<option value="W 54 St & 9 Ave">
+<option value="West St & Chambers St">
+<option value="State St">
+<option value="E 3 St & 1 Ave">
+<option value="York St & Jay St">
+<option value="Hanover Pl & Livingston St">
+<option value="E 7 St & Avenue A">
+<option value="E 13 St & Avenue A">
+<option value="9 Ave & W 18 St">
+<option value="W 21 St & 6 Ave">
+<option value="Hancock St & Bedford Ave">
+<option value="Macon St & Nostrand Ave">
+<option value="St Marks Pl & 1 Ave">
+<option value="E 4 St & 2 Ave">
+<option value="E 45 St & 3 Ave">
+<option value="E 52 St & 2 Ave">
+<option value="W 27 St & 7 Ave">
+<option value="Bedford Ave & S 9th St">
+<option value="Broadway & W 24 St">
+<option value="E 10 St & Avenue A">
+<option value="W 24 St & 7 Ave">
+<option value="8 Ave & W 52 St">
+<option value="W 37 St & 10 Ave">
+<option value="W 52 St & 9 Ave">
+<option value="W 49 St & 8 Ave">
+<option value="W 22 St & 8 Ave">
+<option value="E 51 St & 1 Ave">
+<option value="1 Ave & E 44 St">
+<option value="E 53 St & Madison Ave">
+<option value="Broadway & W 58 St">
+<option value="11 Ave & W 27 St">
+<option value="W 20 St & 11 Ave">
+<option value="S 4 St & Wythe Ave">
+<option value="E 20 St & 2 Ave">
+<option value="W 22 St & 10 Ave">
+<option value="9 Ave & W 16 St">
+<option value="E 56 St & 3 Ave">
+<option value="Broadway & W 41 St">
+<option value="W 25 St & 6 Ave">
+<option value="Dean St & 4 Ave">
+<option value="Broadway & W 55 St">
+<option value="Broadway & W 53 St">
+<option value="W 20 St & 8 Ave">
+<option value="Grand St & Havemeyer St">
+<option value="E 32 St & Park Ave">
+<option value="Rivington St & Chrystie St">
+<option value="5 Ave & E 29 St">
+<option value="E 16 St & Irving Pl">
+<option value="E 31 St & 3 Ave">
+<option value="W 41 St & 8 Ave">
+<option value="11 Ave & W 41 St">
+<option value="9 Ave & W 45 St">
+<option value="W 53 St & 10 Ave">
+<option value="S 3 St & Bedford Ave">
+<option value="W 15 St & 7 Ave">
+<option value="E 12 St & 3 Ave">
+<option value="W 44 St & 5 Ave">
+<option value="W 37 St & 5 Ave">
+<option value="Broadway & W 29 St">
+<option value="E 20 St & FDR Drive">
+<option value="W 39 St & 9 Ave">
+<option value="10 Ave & W 28 St">
+<option value="8 Ave & W 33 St">
+<option value="E 24 St & Park Ave S">
+<option value="W 33 St & 7 Ave">
+<option value="W 45 St & 6 Ave">
+<option value="W 26 St & 8 Ave">
+<option value="W 47 St & 10 Ave">
+<option value="E 16 St & 5 Ave">
+<option value="E 17 St & Broadway">
+<option value="Broadway & W 32 St">
+<option value="Broadway & W 60 St">
+<option value="Broadway & W 51 St">
+<option value="FDR Drive & E 35 St">
+<option value="Henry St & Grand St">
+<option value="E 20 St & Park Ave">
+<option value="1 Ave & E 15 St">
+<option value="6 Ave & W 33 St">
+<option value="E 25 St & 2 Ave">
+<option value="W 46 St & 11 Ave">
+<option value="9 Ave & W 22 St">
+<option value="W 51 St & 6 Ave">
+<option value="E 14 St & Avenue B">
+<option value="W 29 St & 9 Ave">
+<option value="W 56 St & 10 Ave">
+<option value="12 Ave & W 40 St">
+<option value="W 43 St & 10 Ave">
+<option value="E 47 St & 1 Ave">
+<option value="E 41 St & Madison Ave">
+<option value="E 39 St & 2 Ave">
+<option value="E 42 St & Vanderbilt Ave">
+<option value="W 52 St & 5 Ave">
+<option value="8 Ave & W 31 St">
+<option value="E 51 St & Lexington Ave">
+<option value="W 38 St & 8 Ave">
+<option value="W 43 St & 6 Ave">
+<option value="W 34 St & 11 Ave">
+<option value="E 33 St & 5 Ave">
+<option value="E 33 St & 1 Ave">
+<option value="2 Ave & E 31 St">
+<option value="W 42 St & 8 Ave">
+<option value="11 Ave & W 59 St">
+<option value="Forsyth St & Broome St">
+<option value="S 5 Pl & S 4 St">
+<option value="Broadway & W 39 St">
+<option value="Water - Whitehall Plaza">
+<option value="1 Ave & E 30 St">
+<option value="Lexington Ave & E 24 St">
+<option value="W 49 St & 5 Ave">
+<option value="Metropolitan Ave & Bedford Ave">
+<option value="Lexington Ave & E 26 St">
+<option value="E 23 St & 1 Ave">
+<option value="E 30 St & Park Ave S">
+<option value="Front St & Washington St">
+<option value="Sands St & Navy St">
+<option value="Wythe Ave & Metropolitan Ave">
+<option value="1 Ave & E 18 St">
+<option value="6 Ave & Broome St">
+<option value="Railroad Ave & Kay Ave">
+<option value="Central Park S & 6 Ave">
+<option value="Little West St & 1 Pl">
+<option value="Catherine St & Monroe St">
+<option value="Grand St & Greene St">
+<option value="E 27 St & 1 Ave">
+<option value="E 43 St & 2 Ave">
+<option value="W 45 St & 8 Ave">
+<option value="E 59 St & Sutton Pl">
+<option value="E 55 St & Lexington Ave">
+<option value="South End Ave & Liberty St">
+</datalist>
+
+</head>
+<body>
+<h1><font color="white"><span>Mumu & Raqish present (in real time!)</span><br />Celestial Citibike Station Intel</font></h1>
+
+<form method="GET" action="program.py" class="css_form">
+    <fieldset>
+        <label for="text_field" class="left_element required">Who are you? <span class="required">*</span></label>
+        <div class="tooltip">
+            <input type="text" name="text_field" value="" size="30" id="text_field" placeholder="Your name, please." class="tooltip">
+            <span class="tooltip_content">
+                <strong>Please tell us who you are!</strong><br />We enjoy soliciting personal information.
+            </span>
+        </div>
+    </fieldset>
+
+    <fieldset>
+    <label class="left_element">Select departure station:</label>
+    <input list="stations" name="String" placeholder="Type station name.">    
+    </fieldset>
+
+    <fieldset>
+    <label class="left_element">Select destination station:</label>
+    <input list="stations" name="String" placeholder="Type station name.">    
+    </fieldset>
+
+    <ul class="form_buttons">
+        <li><input type="reset" value="Reset" /></li>   
+        <li><input type="submit" value="Submit" /></li>
+    </ul>
+
+    <fieldset>
+    <label class="left_element">Select location:</label>
+    <input list="stations" name="String" placeholder="Type location name.">    
+    </fieldset>
+
+
+   <fieldset>
+        <label class="left_element">List nearest stations in:</label>
+        <ul class="form_options">
+            <li><input type="radio" checked="checked" name="radio-group"><span class="desc_text">5-mile radius</span></li>
+            <li><input type="radio" name="radio-group"><span class="desc_text">10-mile radius</span></li>
+            <li><input type="radio" name="radio-group"><span class="desc_text">15-mile radius</span></li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <label class="left_element">Display only in-service stations?</label>
+        <fieldset class="form_toggle">
+            <input id="toggle2" type="checkbox" checked />
+            <label class="toggle_label" for="toggle2"><span>YES</span><span>NO</span></label>
+            <span class="toggle_button"></span>
+        </fieldset>
+    </fieldset>
+
+    <fieldset>
+        <label class="left_element">Display stations with more than:</label>
+        <input type="number" id="number" name="number" value="1" min="0" max="30" required>
+        available bikes.
+    </fieldset>
+
+    <ul class="form_buttons">
+        <li><input type="reset" value="Reset" /></li>   
+        <li><input type="submit" value="Submit" /></li>
+    </ul>
+        
+    </fieldset>
+
+    <div class="clear"></div>   
+</form>     
+</body>
+</html>
